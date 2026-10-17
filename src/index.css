@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Design System: Inspired by darshjain.com + Liquid Glassmorphism UI
+   Abhinav Upadhyay — Founder of Assurance Digital
+   ========================================================================== */
+
+:root {
+  /* Brand Color Palette matching darshjain.com */
+  --dj-canvas: #ffffff;
+  --dj-surface: #F2F7FF;
+  --dj-soft: #F8FAFF;
+  --dj-hair: #DCE6F5;
+  --dj-hair-soft: #E8EFFA;
+  --dj-hair-strong: #B9C9E4;
+  --dj-ink: #0B1A33;
+  --dj-char: #25324D;
+  --dj-slate: #4A5878;
+  --dj-steel: #6B7A99;
+  --dj-blue: #1268F3;
+  --dj-blue-press: #0B4FC4;
+  --dj-blue-glow: rgba(18, 104, 243, 0.28);
+  --dj-navy: #081F4D;
+  --dj-navy-mid: #0A2F73;
+  --dj-navy-dark: #051433;
+  --dj-ondark: #C9DAF8;
+  
+  /* Tint scales */
+  --dj-b50: #F2F7FF;
+  --dj-b100: #E6F0FE;
+  --dj-b200: #D2E3FD;
+  --dj-b300: #B3D0FB;
+  --dj-b400: #7DAEF8;
+  
+  /* Typography */
+  --dj-font: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Shadows & Glassmorphism */
+  --shadow-sm: 0 2px 8px rgba(11, 26, 51, 0.04);
+  --shadow-md: 0 10px 24px -10px rgba(8, 31, 77, 0.12);
+  --shadow-lg: 0 18px 40px -18px rgba(8, 31, 77, 0.22);
+  --shadow-hero-card: 0 20px 48px -20px rgba(8, 31, 77, 0.45);
+  
+  /* Transitions */
+  --transition-fast: 0.18s ease;
+  --transition-base: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--dj-canvas);
+  color: var(--dj-char);
+}
+
+body {
+  font-family: var(--dj-font);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+  background: var(--dj-canvas);
+}
+
+a {
+  color: var(--dj-blue);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--dj-blue-press);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Ambient Liquid Glow */
+.liquid-ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.65;
+}
+
+.liquid-blob {
+  position: absolute;
+  filter: blur(90px);
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  animation: floatBlobs 20s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+  width: 540px;
+  height: 540px;
+  background: radial-gradient(circle, rgba(18, 104, 243, 0.15) 0%, rgba(210, 227, 253, 0.05) 70%);
+  top: -120px;
+  right: -100px;
+}
+
+.blob-2 {
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(13, 148, 251, 0.09) 0%, rgba(230, 240, 254, 0.02) 70%);
+  bottom: 25%;
+  left: -150px;
+  animation-duration: 25s;
+}
+
+.blob-3 {
+  width: 460px;
+  height: 460px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  top: 55%;
+  right: 8%;
+  animation-duration: 18s;
+}
+
+@keyframes floatBlobs {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, 40px) scale(1.05); }
+  100% { transform: translate(-20px, -20px) scale(0.95); }
+}
